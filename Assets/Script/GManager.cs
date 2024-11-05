@@ -16,7 +16,11 @@ public class GManager : MonoBehaviour
     }
 
     Camera cam;
+
+
     public SlimeController Slime;
+    public Trajectory trajectory;
+
     [SerializeField] float pushforce = 4f;
 
     bool isDragging = false;
@@ -57,6 +61,8 @@ public class GManager : MonoBehaviour
     {
         Slime.DeActivateRb();
         startpoint = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        trajectory.show();
     }
 
     void OnDrag()
@@ -68,6 +74,8 @@ public class GManager : MonoBehaviour
 
         Debug.DrawLine(startpoint, endpoint);
 
+        trajectory.UpdateDots(Slime.pos, force);
+
     }
 
     void OnDragEnd()
@@ -75,6 +83,8 @@ public class GManager : MonoBehaviour
         //슬라임 밀기
         Slime.ActivateRb();
         Slime.push(force);
+
+        trajectory.hide();
 
     }
 

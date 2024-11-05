@@ -8,11 +8,7 @@ public class SlimeController : MonoBehaviour
 
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public CircleCollider2D col;
-    [HideInInspector]
-    public Vector3 HumanPose
-    {
-        get { return transform.position; }
-    }
+    [HideInInspector] public Vector3 pos { get { return transform.position; }}
 
     void Awake()
     {
