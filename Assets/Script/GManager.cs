@@ -7,6 +7,7 @@ public class GManager : MonoBehaviour
 {
     public static GManager Instance;
 
+    public GameObject launching_slime;
     void Awake()
     {
         if (Instance == null)
@@ -34,26 +35,33 @@ public class GManager : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        Slime.DeActivateRb();
+        if (Slime != null)
+        {
+            Slime.DeActivateRb();
+        }
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            isDragging = true;
-            OnDragStart();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
-            OnDragEnd();
+        if (Slime != null) {
+            if (Input.GetMouseButtonDown(0))
+            {
+                isDragging = true;
+                OnDragStart();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                isDragging = false;
+                OnDragEnd();
+            }
+
+            if (isDragging)
+            {
+                OnDrag();
+            }
+
         }
 
-        if (isDragging)
-        {
-            OnDrag();
-        }
         
     }
 
@@ -85,6 +93,16 @@ public class GManager : MonoBehaviour
         Slime.push(force);
 
         trajectory.hide();
+
+    }
+
+    public void Spawn_Launching_Slime()
+    {
+        Vector3 launching_position = new Vector3(-4.6f, 5.6f, 0f);
+        Debug.Log(launching_position);
+        GameObject spawnedSlime = Instantiate(launching_slime, launching_position, Quaternion.identity);
+        Slime = spawnedSlime.GetComponent<SlimeController>();
+        Slime.DeActivateRb();
 
     }
 
