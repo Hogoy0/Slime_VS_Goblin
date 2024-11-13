@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: 8965e8d34959a5243a2938974240a786
+guid: 0a765f8a3dff8d54ea3a1addcb711222
+labels:
+- Atlas
 SpriteAtlasImporter:
   externalObjects: {}
   textureSettings:

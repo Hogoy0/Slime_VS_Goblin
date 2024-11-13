@@ -18,9 +18,11 @@ public class GManager : MonoBehaviour
 
     Camera cam;
 
-
+    public GameObject[] slimePrefabs;
+    public Vector3 launching_position;
     public SlimeController Slime;
     public Trajectory trajectory;
+    public bool isSlimeReady = false;
 
     [SerializeField] float pushforce = 4f;
 
@@ -39,11 +41,12 @@ public class GManager : MonoBehaviour
         {
             Slime.DeActivateRb();
         }
+        isSlimeReady = false;
     }
 
     void Update()
     {
-        if (Slime != null) {
+        if (Slime != null && isSlimeReady == true) {
             if (Input.GetMouseButtonDown(0))
             {
                 isDragging = true;
@@ -93,17 +96,30 @@ public class GManager : MonoBehaviour
         Slime.push(force);
 
         trajectory.hide();
+        isSlimeReady = false;
 
     }
 
-    public void Spawn_Launching_Slime()
+    public void Spawn_Launching_Slime(int slimeIndex)
     {
-        Vector3 launching_position = new Vector3(-4.6f, 5.6f, 0f);
-        Debug.Log(launching_position);
-        GameObject spawnedSlime = Instantiate(launching_slime, launching_position, Quaternion.identity);
-        Slime = spawnedSlime.GetComponent<SlimeController>();
-        Slime.DeActivateRb();
+        if (isSlimeReady == false)
+        {
+            Vector3 launching_position = new Vector3(-2.6f, -1.8f, 0f);
+            Debug.Log(launching_position);
+            GameObject spawnedSlime = Instantiate(slimePrefabs[slimeIndex], launching_position, Quaternion.identity);
+            Slime = spawnedSlime.GetComponent<SlimeController>();
+            Slime.DeActivateRb();
+            StartCoroutine(ResetSlimeReady());
 
+        }
+
+    }
+
+
+    private IEnumerator ResetSlimeReady()
+    {
+        yield return new WaitForSeconds(1f);  // 1초 기다리기
+        isSlimeReady = true;  // 슬라임 준비 상태를 true로 변경
     }
 
 
