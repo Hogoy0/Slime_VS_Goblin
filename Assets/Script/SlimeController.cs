@@ -12,6 +12,7 @@ public class SlimeController : MonoBehaviour
 
     public GameObject prefabToSpawn;
     public string targetLayerName = "Ground";
+    public int SlimeCost = 0;
 
     void Awake()
     {

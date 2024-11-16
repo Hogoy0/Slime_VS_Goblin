@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4217490474268126180
+--- !u!1001 &8285237996930067842
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -50,23 +50,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2463488140157623833, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: SlimeCost
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2463488140157623833, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: prefabToSpawn
       value: 
-      objectReference: {fileID: 2706138389645708799, guid: 045a49a11bf6e624b86c6acd17854202, type: 3}
+      objectReference: {fileID: 5679935830944788079, guid: 1d876509f91222846ade6d55aad8364f, type: 3}
+    - target: {fileID: 5257574504988215608, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
+      propertyPath: m_Size.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257574504988215608, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
+      propertyPath: m_Size.y
+      value: 2.56
+      objectReference: {fileID: 0}
     - target: {fileID: 5257574504988215608, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 305304debe7bbe24e89b62c3b61772f9, type: 3}
+      objectReference: {fileID: 21300000, guid: eb15a7f3c9523d54b99ce351fdd46ccf, type: 3}
     - target: {fileID: 5257574504988215608, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5307014517700006524, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: m_Name
-      value: Sapphire
+      value: Emerald
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

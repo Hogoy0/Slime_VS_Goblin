@@ -49,9 +49,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2463488140157623833, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
+      propertyPath: SlimeCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463488140157623833, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: prefabToSpawn
       value: 
       objectReference: {fileID: 155642044266220949, guid: 97b609414ffc246488543bda1f2d5f58, type: 3}
+    - target: {fileID: 5257574504988215608, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9db6af824b652fd4492da070e0484677, type: 3}
+    - target: {fileID: 5257574504988215608, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5307014517700006524, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: m_Name
       value: Ruby
