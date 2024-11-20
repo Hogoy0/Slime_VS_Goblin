@@ -12,10 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sapphire_Battle
       objectReference: {fileID: 0}
+    - target: {fileID: 197094129642370313, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1595876237892850315, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 305304debe7bbe24e89b62c3b61772f9, type: 3}
+      objectReference: {fileID: 21300000, guid: 53c1fe77103567245ab1dab1da823654, type: 3}
     - target: {fileID: 1595876237892850315, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -63,5 +67,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 197094129642370313, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1371589156811425084}
+    - targetCorrespondingSourceObject: {fileID: 197094129642370313, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4820016846598898139}
   m_SourcePrefab: {fileID: 100100000, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
+--- !u!1 &2706138389645708799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197094129642370313, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
+  m_PrefabInstance: {fileID: 2824349147916974326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1371589156811425084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2706138389645708799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8091cf10a9705d48a51d2cb3ebd1d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  col: {fileID: 0}
+  prefabToSpawn: {fileID: 2706138389645708799}
+  targetLayerName: Ground
+--- !u!114 &-4820016846598898139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2706138389645708799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07183eea76849984baef065c61c3ae7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slimeData: {fileID: 11400000, guid: 5f0da15e7e0311547bc6bbc8337ffac3, type: 2}
