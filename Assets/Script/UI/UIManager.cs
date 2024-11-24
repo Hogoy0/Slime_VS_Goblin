@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public enum BtnType
 {
-    New,
-    Continue,
+    Start,
     Option,
     Quit
 }
@@ -17,12 +16,8 @@ public class BtnManager : MonoBehaviour
     {
         switch (currentType)
         {
-            case BtnType.New:
+            case BtnType.Start:
                 Debug.Log("새 게임");
-                SceneManager.LoadScene("MainScene");
-                break;
-            case BtnType.Continue:
-                Debug.Log("이어하기");
                 SceneManager.LoadScene("MainScene");
                 break;
             case BtnType.Option:

@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageName: Stage1
   waves:
-  - waveName: 2
+  - waveName: 1
     goblinSpawnList:
-    - goblinType: 2
-      count: 1
     - goblinType: 2
       count: 1
