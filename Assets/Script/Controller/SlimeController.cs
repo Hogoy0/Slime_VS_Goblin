@@ -1,18 +1,15 @@
 using UnityEngine;
+using System.Collections;
 
 public class SlimeController : MonoBehaviour
 {
-    public SlimeData slimeData; // 슬라임의 데이터
-    private GameObject target; // 현재 타겟 (GameObject)
-    private bool isAttacking; // 공격 중 여부
+    public SlimeData slimeData;      // 슬라임 데이터
+    private GameObject target;       // 현재 타겟
+    private bool isAttacking;        // 공격 중 여부
 
     private void Start()
     {
-        if (slimeData == null)
-        {
-            Debug.LogError($"슬라임 데이터가 null입니다: {gameObject.name}");
-            return;
-        }
+        if (slimeData == null) return;
 
         Initialize(slimeData);
     }
@@ -33,7 +30,7 @@ public class SlimeController : MonoBehaviour
 
             if (target != null && Vector3.Distance(transform.position, target.transform.position) <= slimeData.m_stopDis)
             {
-                Attack(); // 공격
+                StartCoroutine(PerformAttackWithDelay());
             }
         }
     }
@@ -53,45 +50,35 @@ public class SlimeController : MonoBehaviour
                 closestTarget = goblin;
             }
         }
-
         target = closestTarget;
-
-        if (target != null)
-        {
-            Debug.Log($"슬라임이 고블린 발견: {target.name}");
-        }
     }
 
-    private void Attack()
+    private IEnumerator PerformAttackWithDelay()
     {
-        if (isAttacking || target == null) return;
+        if (isAttacking || target == null) yield break;
 
         isAttacking = true;
 
-        // 데미지 계산
-        var targetController = target.GetComponent<GoblinController>();
-        if (targetController != null)
+        // 공격 준비 시간 대기
+        yield return new WaitForSeconds(GManager.Instance.SlimeAttackDelay);
+
+        // 타겟이 여전히 유효한지 확인
+        if (target != null && Vector3.Distance(transform.position, target.transform.position) <= slimeData.m_stopDis)
         {
-            targetController.TakeDamage(slimeData.m_atk);
-            Debug.Log($"슬라임이 {target.name}을(를) 공격! 데미지: {slimeData.m_atk}");
-        }
-        else
-        {
-            Debug.LogError("타겟에서 GoblinController를 찾을 수 없습니다!");
+            var targetController = target.GetComponent<GoblinController>();
+            if (targetController != null)
+            {
+                targetController.TakeDamage(slimeData.m_atk);
+            }
         }
 
-        Invoke(nameof(ResetAttack), slimeData.m_reAtkTime); // 공격 쿨타임
-    }
-
-    private void ResetAttack()
-    {
+        yield return new WaitForSeconds(slimeData.m_reAtkTime); // 공격 쿨타임
         isAttacking = false;
     }
 
     public void TakeDamage(int damage)
     {
         slimeData.m_currentHp -= damage;
-        Debug.Log($"슬라임이 피해를 입음: {damage}, 남은 체력: {slimeData.m_currentHp}");
         if (slimeData.m_currentHp <= 0)
         {
             Die();
@@ -100,7 +87,6 @@ public class SlimeController : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log($"{gameObject.name}이(가) 죽었습니다.");
         Destroy(gameObject);
     }
 }

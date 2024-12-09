@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93edde779f1e9a4b8751fa43c58e9de, type: 3}
   m_Name: StageData 2
   m_EditorClassIdentifier: 
-  stageName: Stage1
+  stageName: Stage2
   waves:
   - waveName: 1
-    goblinSpawnList: []
+    goblinSpawnList:
+    - goblinType: 0
+      count: 7
+    - goblinType: 1
+      count: 4
+    - goblinType: 2
+      count: 1
   - waveName: 2
-    goblinSpawnList: []
+    goblinSpawnList:
+    - goblinType: 0
+      count: 7
+    - goblinType: 1
+      count: 3
+    - goblinType: 2
+      count: 2

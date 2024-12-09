@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: SlimeData
+  m_EditorClassIdentifier: 
+  m_GroupName: SlimeData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f05653bb4caf06b41845a38d88a6be60
+  m_SerializeEntries:
+  - m_GUID: f38406e30666d9e4a996fee0c8eb8e49
+    m_Address: Assets/Prefabs/Slime/Diamond.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8280125e5574b05469098a4e311c80cf
+    m_Address: Assets/Prefabs/Slime/Emerald.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22c2e92e5d3b81a43b5022e110653c8f
+    m_Address: Assets/Prefabs/Slime/Ruby.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ef75c6f0a491a04580d6b8de6cd77b3
+    m_Address: Assets/Prefabs/Slime/Sapphire.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 672f893d1d5b6b346816584ba71849a0
+    m_Address: Assets/Prefabs/Slime/Topaz.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f0da15e7e0311547bc6bbc8337ffac3
+    m_Address: Assets/Prefabs/SlimeData/SlimeData1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e147bef370d9edd4084f6a89a5029890
+    m_Address: Assets/Prefabs/SlimeData/SlimeData0.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faddcc010502c1b4b87d14b0475b142b
+    m_Address: Assets/Prefabs/SlimeData/SlimeData3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f5b2c033451c314287df466f3e69a9f
+    m_Address: Assets/Prefabs/SlimeData/SlimeData4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc25128d113b3b449aed0a991ac364f2
+    m_Address: Assets/Prefabs/SlimeData/SlimeData2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9782081d740a3c4ca912696910fca57
+    m_Address: Assets/Prefabs/GoblinData/GoblinData1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43d64516f5070df4081e1de4ac58c5c2
+    m_Address: Assets/Prefabs/GoblinData/GoblinData4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b62facbc98a755b4898439b1bcff38a6
+    m_Address: Assets/Prefabs/GoblinData/GoblinData2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f397230180238445acf7bc71d795baa
+    m_Address: Assets/Prefabs/GoblinData/GoblinData3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b68324d57bf82c34fb43e485bd7981da
+    m_Address: Assets/Prefabs/GoblinData/GoblinData0.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 264a6557f5023eb4caf05fcfc9740def
+    m_Address: Assets/Prefabs/Goblin/Pickax.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37ebd2f7e68799e40af8a04b0c7b96a8
+    m_Address: Assets/Prefabs/Goblin/Chief.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08f1b66b8aa6dbb47b16be85e170ab9c
+    m_Address: Assets/Prefabs/Goblin/Drill.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c57a9b255ebdf54bb582a051a6c3623
+    m_Address: Assets/Prefabs/Goblin/Shovels.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec92982a9a61c1c49ba2189314dc198e
+    m_Address: Assets/Prefabs/Goblin/Bomb.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: d7a651e5ac438084ba54a61f3a32685b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a822d8868cabcf2409a086ff2ae4d242, type: 2}
+    - {fileID: 11400000, guid: 4de7a1a187e755549a607828be4c75f2, type: 2}

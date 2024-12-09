@@ -1,130 +1,156 @@
 using UnityEngine;
+using System.Collections;
 
 public class GoblinController : MonoBehaviour
 {
     private GoblinData goblinData;
-    private Vector3 spawnPosition;
     private GameObject target;
     private bool isAttacking;
 
+    /// <summary>
+    /// 고블린 초기화
+    /// </summary>
     public void Initialize(GoblinData data, Vector3 position)
     {
         goblinData = data;
-        goblinData.m_currentHp = data.m_maxHp; // 체력 초기화
-        spawnPosition = position;
-
-        // 데이터 초기화
+        goblinData.m_currentHp = data.m_maxHp;  // 체력 초기화
         transform.position = position;
-        Debug.Log($"고블린 초기화 완료: {data.m_name}, 위치: {position}");
     }
 
     private void Update()
     {
+        if (GManager.Instance.IsGameOver) return;
+
+        // 타겟 탐색 (슬라임 > 성 우선)
+        FindTarget();
+
         if (!isAttacking)
         {
-            if (target == null)
-            {
-                FindClosestTarget(); // 타겟 탐색
-            }
-
             if (target != null)
             {
-                float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+                float distanceToTarget = Mathf.Abs(transform.position.x - target.transform.position.x);
 
-                // 슬라임이 공격 범위 안에 들어왔으면 공격, 아니면 이동
+                // 타겟이 공격 범위 안에 있으면 공격, 아니면 이동
                 if (distanceToTarget <= goblinData.m_stopDis)
                 {
-                    Attack();
+                    StartCoroutine(PerformAttack());
                 }
                 else
                 {
-                    MoveTowardsTarget();
+                    MoveTowardsTarget();  // 타겟을 향해 이동
                 }
             }
             else
             {
-                BasicMovement(); // 슬라임이 없으면 기본 이동
+                MoveLeft();  // 기본 이동 (왼쪽)
             }
         }
     }
 
-    private void FindClosestTarget()
+    /// <summary>
+    /// 타겟 탐색 (슬라임 > 성)
+    /// </summary>
+    private void FindTarget()
+    {
+        GameObject closestSlime = FindClosestSlime();
+        if (closestSlime != null)
+        {
+            target = closestSlime;  // 슬라임이 있으면 우선 타겟 설정
+        }
+        else
+        {
+            target = GameObject.FindWithTag("Castle");  // 슬라임이 없으면 성 타겟 설정
+        }
+    }
+
+    /// <summary>
+    /// 가장 가까운 슬라임 찾기
+    /// </summary>
+    private GameObject FindClosestSlime()
     {
         GameObject[] slimes = GameObject.FindGameObjectsWithTag("Slime");
-        GameObject closestTarget = null;
+        GameObject closestSlime = null;
         float closestDistance = Mathf.Infinity;
 
         foreach (GameObject slime in slimes)
         {
-            float distance = Vector3.Distance(transform.position, slime.transform.position);
-            if (distance < closestDistance && distance <= goblinData.m_searchLength)
+            float distance = Mathf.Abs(transform.position.x - slime.transform.position.x);
+            if (distance < closestDistance)
             {
                 closestDistance = distance;
-                closestTarget = slime;
+                closestSlime = slime;
             }
         }
-
-        target = closestTarget;
-
-        if (target != null)
-        {
-            Debug.Log($"고블린이 슬라임 발견: {target.name}");
-        }
+        return closestSlime;
     }
 
-    private void Attack()
+    /// <summary>
+    /// 공격 수행
+    /// </summary>
+    private IEnumerator PerformAttack()
     {
-        if (isAttacking || target == null) return;
+        if (isAttacking || target == null) yield break;
 
         isAttacking = true;
 
-        var targetController = target.GetComponent<SlimeController>();
-        if (targetController != null)
+        if (target.CompareTag("Slime"))
         {
-            targetController.TakeDamage(goblinData.m_atk);
-            Debug.Log($"고블린이 {target.name}을(를) 공격! 데미지: {goblinData.m_atk}");
+            var slimeController = target.GetComponent<SlimeController>();
+            slimeController?.TakeDamage(goblinData.m_atk);  // 슬라임 공격
         }
-        else
+        else if (target.CompareTag("Castle"))
         {
-            Debug.LogError("타겟에서 SlimeController를 찾을 수 없습니다!");
+            GManager.Instance.TakeDamageToCastle(goblinData.m_atk);  // 성 공격
         }
 
-        Invoke(nameof(ResetAttack), goblinData.m_reAtkTime); // 공격 쿨타임
-    }
-
-    private void ResetAttack()
-    {
+        yield return new WaitForSeconds(goblinData.m_reAtkTime);  // 공격 대기 시간
         isAttacking = false;
     }
 
+    /// <summary>
+    /// 타겟을 향해 이동
+    /// </summary>
     private void MoveTowardsTarget()
     {
         if (target == null) return;
 
-        // 고블린이 타겟을 향해 이동
         float step = goblinData.Speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+        Vector3 nextPosition = new Vector3(
+            Mathf.MoveTowards(transform.position.x, target.transform.position.x, step),
+            transform.position.y,
+            transform.position.z
+        );
+
+        transform.position = nextPosition;
     }
 
-    private void BasicMovement()
+    /// <summary>
+    /// 왼쪽 방향으로 이동 (기본 이동)
+    /// </summary>
+    private void MoveLeft()
     {
-        // 슬라임이 없으면 왼쪽 방향으로 이동 (기본 이동)
-        transform.Translate(Vector3.left * goblinData.Speed * Time.deltaTime);
+        float step = goblinData.Speed * Time.deltaTime;
+        transform.Translate(Vector3.left * step);  // 왼쪽으로 이동
     }
 
+    /// <summary>
+    /// 데미지를 받을 때
+    /// </summary>
     public void TakeDamage(int damage)
     {
         goblinData.m_currentHp -= damage;
-        Debug.Log($"고블린이 피해를 입음: {damage}, 남은 체력: {goblinData.m_currentHp}");
         if (goblinData.m_currentHp <= 0)
         {
             Die();
         }
     }
 
+    /// <summary>
+    /// 사망 처리 (StageManager에 고블린 사망 알림)
+    /// </summary>
     private void Die()
     {
-        Debug.Log($"{gameObject.name}이(가) 죽었습니다.");
-        Destroy(gameObject);
+        StageManager.Instance.HandleGoblinDeath(gameObject);  // 고블린 제거 알림
+        Destroy(gameObject);  // 고블린 제거
     }
 }

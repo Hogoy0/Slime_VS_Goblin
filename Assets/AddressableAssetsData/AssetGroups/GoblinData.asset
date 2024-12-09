@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GoblinData
+  m_EditorClassIdentifier: 
+  m_GroupName: GoblinData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6ead05acd070b494882017fcd9c670ce
+  m_SerializeEntries: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: d7a651e5ac438084ba54a61f3a32685b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 33040306067ab6b42a2231d388ad425b, type: 2}
+    - {fileID: 11400000, guid: 4acaf021da98c3a4d9ca1df0761372b9, type: 2}

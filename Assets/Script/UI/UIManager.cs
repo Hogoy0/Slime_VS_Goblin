@@ -18,7 +18,7 @@ public class BtnManager : MonoBehaviour
         {
             case BtnType.Start:
                 Debug.Log("새 게임");
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("StageScene");
                 break;
             case BtnType.Option:
                 Debug.Log("설정");
