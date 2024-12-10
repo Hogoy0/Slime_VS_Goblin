@@ -15,6 +15,36 @@ MonoBehaviour:
   stageName: Stage5
   waves:
   - waveName: 1
-    goblinSpawnList: []
+    goblinSpawnList:
+    - goblinType: 3
+      count: 1
+    - goblinType: 2
+      count: 2
+    - goblinType: 1
+      count: 2
   - waveName: 2
-    goblinSpawnList: []
+    goblinSpawnList:
+    - goblinType: 3
+      count: 3
+    - goblinType: 4
+      count: 2
+    - goblinType: 1
+      count: 2
+    - goblinType: 2
+      count: 2
+  - waveName: 3
+    goblinSpawnList:
+    - goblinType: 3
+      count: 6
+    - goblinType: 4
+      count: 6
+    - goblinType: 3
+      count: 2
+    - goblinType: 4
+      count: 5
+    - goblinType: 2
+      count: 3
+    - goblinType: 0
+      count: 3
+    - goblinType: 3
+      count: 3

@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa76b7064816004d8585e760cbe7143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarUI: {fileID: 0}
-  healthSlider: {fileID: 0}
-  healthText: {fileID: 0}
+  healthBarUI: {fileID: 7444850855078952813}
+  healthSlider: {fileID: 6180073517489198921}
+  healthText: {fileID: 4589360730183416530}
   hideDelay: 2
-  alwaysVisible: 0
+  alwaysVisible: 1
 --- !u!1 &2018886194027915427
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ MonoBehaviour:
     m_AssetGUID: 6c57a9b255ebdf54bb582a051a6c3623
     m_SubObjectName: 
     m_SubObjectType: 
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0
   PickaxPrefab:
     m_AssetGUID: 264a6557f5023eb4caf05fcfc9740def
     m_SubObjectName: 

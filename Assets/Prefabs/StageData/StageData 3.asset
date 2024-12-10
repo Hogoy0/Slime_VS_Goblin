@@ -21,7 +21,7 @@ MonoBehaviour:
     - goblinType: 2
       count: 1
     - goblinType: 1
-      count: 2
+      count: 1
     - goblinType: 4
       count: 1
   - waveName: 2
@@ -31,6 +31,6 @@ MonoBehaviour:
     - goblinType: 2
       count: 2
     - goblinType: 1
-      count: 8
+      count: 7
     - goblinType: 4
-      count: 5
+      count: 4

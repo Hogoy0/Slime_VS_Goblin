@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: "\uC0AC\uD30C\uC774\uC5B4 \uC2AC\uB77C\uC784"
   m_maxHp: 70
-  m_atk: 25
+  m_atk: 20
   m_stopDis: 5
   m_searchLength: 5
-  m_reAtkTime: 1
-  m_currentHp: 20
+  m_reAtkTime: 5.2
+  m_currentHp: 40
   Cost: 20
   slimeType: 1
   DiamondPrefab:

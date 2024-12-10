@@ -17,8 +17,8 @@ MonoBehaviour:
   m_atk: 10
   m_stopDis: 2
   m_searchLength: 2
-  m_reAtkTime: 1
-  m_currentHp: -10
+  m_reAtkTime: 2
+  m_currentHp: 0
   Cost: 10
   slimeType: 4
   DiamondPrefab:

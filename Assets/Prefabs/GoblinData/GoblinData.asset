@@ -15,10 +15,11 @@ MonoBehaviour:
   m_name: "\uC0BD \uACE0\uBE14\uB9B0"
   m_maxHp: 30
   m_atk: 10
-  m_reAtkTime: 1
-  m_searchLength: 4
   m_stopDis: 2
-  Speed: 0.7
+  m_searchLength: 4
+  m_reAtkTime: 1
+  m_currentHp: 0
+  Speed: 1
   goblinType: 0
   ShovelsPrefab:
     m_AssetGUID: 6c57a9b255ebdf54bb582a051a6c3623
@@ -41,7 +42,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   BombPrefab:
-    m_AssetGUID: 6c57a9b255ebdf54bb582a051a6c3623
+    m_AssetGUID: ec92982a9a61c1c49ba2189314dc198e
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

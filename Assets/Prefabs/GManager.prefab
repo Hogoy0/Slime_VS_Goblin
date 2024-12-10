@@ -125,19 +125,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391a3a9f25c591547ab749718a27a8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxRes: 200
-  m_resPerSec: 10
-  m_nowRes: 0
-  m_resInterval: 2
-  m_resText: {fileID: 0}
-  slimePrefabs:
-  - {fileID: 7922838619257793971, guid: 22c2e92e5d3b81a43b5022e110653c8f, type: 3}
-  - {fileID: 8296128230314867096, guid: 5ef75c6f0a491a04580d6b8de6cd77b3, type: 3}
-  - {fileID: 4277673737686122494, guid: 8280125e5574b05469098a4e311c80cf, type: 3}
-  - {fileID: 4000473627703847978, guid: 672f893d1d5b6b346816584ba71849a0, type: 3}
-  - {fileID: 2792919378942366186, guid: f38406e30666d9e4a996fee0c8eb8e49, type: 3}
-  launching_position: {x: 0, y: 0, z: 0}
-  Slime: {fileID: 0}
-  trajectory: {fileID: 3428056325961516478}
+  castleMaxHp: 1000
+  slimeDataList: []
+  maxResources: 200
+  resourcesPerSec: 10
+  resourceInterval: 3
+  costSlider: {fileID: 0}
+  slimeAttackDelay: 1.5
+  costText: {fileID: 0}
+  castleHealthBar: {fileID: 0}
+  pushForce: 4
+  launchPosition: {x: -2.6, y: -1.8, z: 0}
   isSlimeReady: 0
-  pushforce: 4
+  trajectory: {fileID: 3428056325961516478}

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SlimeData2
   m_EditorClassIdentifier: 
   m_name: "\uD1A0\uD30C\uC988 \uC2AC\uB77C\uC784"
-  m_maxHp: 155
+  m_maxHp: 300
   m_atk: 55
   m_stopDis: 2
   m_searchLength: 2
-  m_reAtkTime: 1
-  m_currentHp: 55
+  m_reAtkTime: 3
+  m_currentHp: 0
   Cost: 40
   slimeType: 2
   DiamondPrefab:

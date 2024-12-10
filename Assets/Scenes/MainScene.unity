@@ -3280,7 +3280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3438,6 +3438,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8580554119644493259, guid: 0084a588d6518694cacf9e08702a2dac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3466,7 +3470,7 @@ MonoBehaviour:
   currentStageData: {fileID: 11400000, guid: 18fe4e2bb1c72154fa83e8d7ee225cad, type: 2}
   spawnPoints:
   - {fileID: 331127608}
-  goblinInterval: 2
+  goblinInterval: 3
   goblinDataList:
   - {fileID: 11400000, guid: b68324d57bf82c34fb43e485bd7981da, type: 2}
   - {fileID: 11400000, guid: b9782081d740a3c4ca912696910fca57, type: 2}
@@ -3530,7 +3534,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '100
+  m_text: '80
 
 '
   m_isRightToLeft: 0
@@ -4228,12 +4232,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093143372}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.84, y: 0.85, z: 2.77}
-  m_LocalScale: {x: 5.3001747, y: 5.3001747, z: 5.3001747}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 19.77}
+  m_LocalScale: {x: 2.9, y: 2.9, z: 2.9}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2116110328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2093537764 stripped
 RectTransform:
@@ -4330,7 +4334,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.4, z: -17}
   m_LocalScale: {x: 0.8375, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2093143374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2116110329
@@ -5522,5 +5527,4 @@ SceneRoots:
   - {fileID: 1620840541}
   - {fileID: 3911731691524959139}
   - {fileID: 525206687}
-  - {fileID: 2093143374}
   - {fileID: 1741326329}

@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: GoblinData 2
   m_EditorClassIdentifier: 
   m_name: "\uB4DC\uB9B4 \uACE0\uBE14\uB9B0"
-  m_maxHp: 165
-  m_atk: 50
-  m_reAtkTime: 1
-  m_searchLength: 4
+  m_maxHp: 140
+  m_atk: 45
   m_stopDis: 2
-  Speed: 0.7
+  m_searchLength: 4
+  m_reAtkTime: 3
+  m_currentHp: 140
+  Speed: 0.8
   goblinType: 2
   ShovelsPrefab:
     m_AssetGUID: 6c57a9b255ebdf54bb582a051a6c3623
@@ -41,7 +42,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   BombPrefab:
-    m_AssetGUID: 6c57a9b255ebdf54bb582a051a6c3623
+    m_AssetGUID: ec92982a9a61c1c49ba2189314dc198e
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
