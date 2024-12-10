@@ -63,7 +63,6 @@ public class SlimeController : MonoBehaviour
         yield return new WaitForSeconds(GManager.Instance.SlimeAttackDelay);
         Animator animator = gameObject.GetComponent<Animator>();
         animator.SetTrigger("Attack");
-        Debug.Log("공격");
         // 타겟이 여전히 유효한지 확인
         if (target != null && Vector3.Distance(transform.position, target.transform.position) <= slimeData.m_stopDis)
         {
