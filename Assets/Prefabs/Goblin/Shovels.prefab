@@ -311,7 +311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.2}
+  m_AnchoredPosition: {x: 0, y: 0.6}
   m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7009684375232123016
@@ -408,7 +408,7 @@ PrefabInstance:
     - target: {fileID: 1595876237892850315, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ed13d76f55755e0439c8c746afde5afe, type: 3}
+      objectReference: {fileID: 21300000, guid: 22ed39e32a08af444bd845fe2b51c63d, type: 3}
     - target: {fileID: 1595876237892850315, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -463,6 +463,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 197094129642370313, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3390692332608459184}
+    - targetCorrespondingSourceObject: {fileID: 197094129642370313, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 774875032995536066}
   m_SourcePrefab: {fileID: 100100000, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
 --- !u!4 &3450554214812361860 stripped
 Transform:
@@ -486,3 +489,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e213bcdd355e2a4d933a39b30b75c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &774875032995536066
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214601370570437488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3fc6a2d8ff28a3c448dbdd8a72ca6985, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

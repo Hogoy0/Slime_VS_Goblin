@@ -103,7 +103,13 @@ public class GoblinController : MonoBehaviour
             GManager.Instance.TakeDamageToCastle(goblinData.m_atk);  // 성 공격
         }
 
+        Animator animator = gameObject.GetComponent<Animator>();
+        animator.SetBool("Attack", true);
+
         yield return new WaitForSeconds(goblinData.m_reAtkTime);  // 공격 대기 시간
+        animator.SetBool("Wait", false);
+        animator.SetBool("Attack", false);
+
         isAttacking = false;
     }
 

@@ -41,7 +41,7 @@ MonoBehaviour:
     - goblinType: 3
       count: 2
     - goblinType: 4
-      count: 5
+      count: 7
     - goblinType: 2
       count: 3
     - goblinType: 0
