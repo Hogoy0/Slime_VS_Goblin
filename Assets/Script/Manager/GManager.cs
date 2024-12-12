@@ -52,6 +52,13 @@ public class GManager : MonoBehaviour
     public bool IsGameOver => isGameOver;
     public int CurrentCastleHp => castleCurrentHp;
 
+
+    public GameObject defeatUI;
+    public GameObject winUI;
+    public GameObject pauseUI;
+
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -60,6 +67,14 @@ public class GManager : MonoBehaviour
             castleCurrentHp = castleMaxHp;
             UpdateCastleHealthBar();
         }
+        InitializeUI();
+
+    }
+    private void InitializeUI()
+    {
+        if (defeatUI) defeatUI.SetActive(false);
+        if (winUI) winUI.SetActive(false);
+        if (pauseUI) pauseUI.SetActive(false);
     }
 
     private void Start()
@@ -103,7 +118,6 @@ public class GManager : MonoBehaviour
     private void GameOver()
     {
         isGameOver = true;
-        Debug.Log("게임 오버! 성이 파괴되었습니다.");
         DefeatUI.SetActive(true);
     }
 
