@@ -34,7 +34,7 @@ public class SummonController : MonoBehaviour
         Diamond_Battle_Murge,
         Ruby_Battle,
         Ruby_Battle_Murge,
-        
+
     }
     public SlimeType slimeType;
     void Awake()
@@ -48,14 +48,16 @@ public class SummonController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// CData를 기반으로 슬라임 초기화
-    /// </summary>
+    // SummonController.cs
     public void Initialize(CData data)
     {
         cData = data;
-        health = data.m_maxHp;
-        attackPower = data.m_atk;
+        SlimeData = null;
+    }
+
+    public void Initialize(SlimeData data)
+    {
+        SlimeData = data;
     }
 
     public void Push(Vector2 force)
@@ -172,25 +174,18 @@ public class SummonController : MonoBehaviour
                 }
             }
 
-            if (spawnedSlime == null) {
+            if (spawnedSlime == null)
+            {
                 spawnedSlime = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
                 Destroy(gameObject);
             }
             // 소환된 슬라임 초기화
-            
+
             SummonController newSlimeController = spawnedSlime.GetComponent<SummonController>();
             if (newSlimeController != null && cData != null)
             {
                 newSlimeController.Initialize(cData);
             }
-
-            
-            
-            // 자기 자신을 제거
-            //Destroy(gameObject);
         }
     }
-
-
-
 }
