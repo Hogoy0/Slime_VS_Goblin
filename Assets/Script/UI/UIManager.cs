@@ -9,9 +9,21 @@ public enum BtnType
     Option,
     Quit
 }
+
 public class BtnManager : MonoBehaviour
 {
     public BtnType currentType;
+    public GameObject PauseUI;
+    private bool isPaused = false;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+
     public void OnBtnClick()
     {
         switch (currentType)
@@ -28,5 +40,12 @@ public class BtnManager : MonoBehaviour
                 Application.Quit();
                 break;
         }
+    }
+
+    private void TogglePause()
+    {
+        isPaused = !isPaused;
+        PauseUI.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0 : 1;
     }
 }

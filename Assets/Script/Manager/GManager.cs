@@ -38,7 +38,7 @@ public class GManager : MonoBehaviour
     public float SlimeAttackDelay => slimeAttackDelay;
 
     private bool isSpawning = false;
-
+    public GameObject DefeatUI;
     private int castleCurrentHp;
     private int currentResources = 0;
     private bool isDragging = false;
@@ -104,8 +104,15 @@ public class GManager : MonoBehaviour
     {
         isGameOver = true;
         Debug.Log("게임 오버! 성이 파괴되었습니다.");
-        // 추가적인 게임 오버 처리 로직
+        DefeatUI.SetActive(true);
     }
+
+    private void UpdateCastleHealthBar()
+    {
+        if (castleHealthBar == null) return;
+        castleHealthBar.UpdateHealthBar(castleCurrentHp, castleMaxHp);
+    }
+
 
     private IEnumerator GenerateResources()
     {
@@ -130,11 +137,6 @@ public class GManager : MonoBehaviour
         costText.text = $"{currentResources}/{maxResources}";
     }
 
-    private void UpdateCastleHealthBar()
-    {
-        if (castleHealthBar == null) return;
-        castleHealthBar.UpdateHealthBar(castleCurrentHp, castleMaxHp);
-    }
 
     /// <summary>
     /// 스테이지 데이터 기반 슬라임 버튼 초기화

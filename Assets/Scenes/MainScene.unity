@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 38753058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 38753055}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &38753058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &138126541
 RectTransform:
   m_ObjectHideFlags: 0
@@ -528,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.88235295}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1786,7 +1798,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 595655104}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 595655101}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &595655104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4808,6 +4832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStageData: {fileID: 11400000, guid: 18fe4e2bb1c72154fa83e8d7ee225cad, type: 2}
+  WinUI: {fileID: 0}
   spawnPoints:
   - {fileID: 331127608}
   goblinInterval: 3
@@ -5105,7 +5130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1761545156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5636,10 +5661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5b3f18cbdf025478e3ef87c207950b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinUI: {fileID: 0}
-  DefeatUI: {fileID: 0}
-  PauseUI: {fileID: 0}
   currentType: 0
+  PauseUI: {fileID: 1761545155}
 --- !u!4 &1975842410
 Transform:
   m_ObjectHideFlags: 0

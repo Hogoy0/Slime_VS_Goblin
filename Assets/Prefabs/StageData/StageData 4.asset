@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: StageData 4
   m_EditorClassIdentifier: 
   StageName: "4\uC2A4\uD14C\uC774\uC9C0"
-  IsUnlocked: 0
-  IsCleared: 0
+  IsUnlocked: 1
+  IsCleared: 1
   DefaultSprite: {fileID: 21300000, guid: 73bf72f46fa6fdf4c95865276a9cabff, type: 3}
   NextStage: {fileID: 11400000, guid: f5b04c12a5072314a90c180e4bf68496, type: 2}
   waves:
