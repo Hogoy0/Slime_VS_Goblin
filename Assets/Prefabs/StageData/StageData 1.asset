@@ -21,16 +21,6 @@ MonoBehaviour:
   - waveName: 1
     goblinSpawnList:
     - goblinType: 0
-      count: 4
-    - goblinType: 1
-      count: 2
-  - waveName: 2
-    goblinSpawnList:
-    - goblinType: 0
-      count: 6
-    - goblinType: 1
-      count: 4
-    - goblinType: 2
       count: 1
   unlockedSlime:
   - slimeType: 4

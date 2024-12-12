@@ -285,6 +285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentType: 3
+  PauseUI: {fileID: 0}
+  DefeatUI: {fileID: 0}
+  WinUI: {fileID: 0}
 --- !u!1 &284875150
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,23 +646,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_text
-      value: New Game
+      value: "\uC0C8\uB85C\uD558\uAE30"
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ed3ddc271bf09f4fa8cf15d569f1b68, type: 2}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.b
-      value: 1
+      value: 0.27163395
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.g
-      value: 1
+      value: 0.27163395
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.r
-      value: 1
+      value: 0.3056603
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8576956506587986301, guid: 3ed3ddc271bf09f4fa8cf15d569f1b68, type: 2}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4282729806
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6031566371621495444, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_Type
@@ -736,6 +759,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentType: 0
+  PauseUI: {fileID: 0}
+  DefeatUI: {fileID: 0}
+  WinUI: {fileID: 0}
 --- !u!1 &1189110041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,25 +1029,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_text
-      value: 'Option
-
-'
+      value: "\uC124\uC815"
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ed3ddc271bf09f4fa8cf15d569f1b68, type: 2}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.b
-      value: 1
+      value: 0.27450982
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.g
-      value: 1
+      value: 0.27450982
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.r
-      value: 1
+      value: 0.30588236
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8576956506587986301, guid: 3ed3ddc271bf09f4fa8cf15d569f1b68, type: 2}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4282795598
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6031566371621495444, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_Type
@@ -1097,6 +1141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentType: 2
+  PauseUI: {fileID: 0}
+  DefeatUI: {fileID: 0}
+  WinUI: {fileID: 0}
 --- !u!1001 &1775280442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1187,25 +1234,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_text
-      value: 'Quit
-
-'
+      value: "\uB098\uAC00\uAE30\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ed3ddc271bf09f4fa8cf15d569f1b68, type: 2}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.b
-      value: 1
+      value: 0.27450982
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.g
-      value: 1
+      value: 0.27450982
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor.r
-      value: 1
+      value: 0.30588236
       objectReference: {fileID: 0}
     - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8576956506587986301, guid: 3ed3ddc271bf09f4fa8cf15d569f1b68, type: 2}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4282795598
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793543667396740489, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6031566371621495444, guid: 7e9f09cb7d412d8449f158cffe0221bf, type: 3}
       propertyPath: m_Type
@@ -1293,6 +1358,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentType: 0
+  PauseUI: {fileID: 0}
+  DefeatUI: {fileID: 0}
+  WinUI: {fileID: 0}
 --- !u!4 &2145538241
 Transform:
   m_ObjectHideFlags: 0

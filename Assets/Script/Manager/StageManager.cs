@@ -94,8 +94,10 @@ public class StageManager : MonoBehaviour
         }
 
         Debug.Log("모든 웨이브가 완료되었습니다!");
+        UnlockNextStage();  // 다음 스테이지 해금
         WinUI.SetActive(true);
     }
+
 
     private void ShowWaveText(string text)
     {
@@ -181,9 +183,29 @@ public class StageManager : MonoBehaviour
         return null;
     }
 
-    public void SetStageData(StageData newStageData)
+    private void UnlockNextStage()
     {
-        currentStageData = newStageData;
-        Debug.Log($"새로운 스테이지 데이터로 변경됨: {newStageData.StageName}");
+        if (currentStageData == null)
+        {
+            Debug.LogError("현재 스테이지 데이터가 없습니다!");
+            return;
+        }
+
+        if (currentStageData.NextStage == null)
+        {
+            Debug.LogWarning("다음 스테이지 데이터가 설정되지 않았습니다!");
+            return;
+        }
+
+        if (!currentStageData.NextStage.IsUnlocked)
+        {
+            currentStageData.NextStage.IsUnlocked = true;
+            Debug.Log($"다음 스테이지 '{currentStageData.NextStage.StageName}'가 해금되었습니다!");
+        }
+        else
+        {
+            Debug.Log("다음 스테이지는 이미 해금되어 있습니다.");
+        }
     }
+
 }

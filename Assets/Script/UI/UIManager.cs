@@ -12,7 +12,6 @@ public enum BtnType
     Restart,
     ReturnToStageScene,
     ReturnToTitleScene,
-    NextStage
 }
 
 public class BtnManager : MonoBehaviour
@@ -63,10 +62,6 @@ public class BtnManager : MonoBehaviour
                 Debug.Log("타이틀 화면으로 돌아가기");
                 ReturnToTitleScene();
                 break;
-            case BtnType.NextStage:
-                Debug.Log("다음 스테이지로");
-                LoadNextStage();
-                break;
         }
     }
 
@@ -96,26 +91,6 @@ public class BtnManager : MonoBehaviour
         else
         {
             Debug.LogError("현재 스테이지 데이터를 불러올 수 없습니다!");
-        }
-    }
-
-    private void LoadNextStage()
-    {
-        Time.timeScale = 1;
-        StageData currentStageData = StageManager.Instance.GetCurrentStageData();
-        if (currentStageData != null && currentStageData.NextStage != null)
-        {
-            Debug.Log($"다음 스테이지로 이동: {currentStageData.NextStage.StageName}");
-
-            // 다음 스테이지 데이터 설정
-            StageManager.Instance.SetStageData(currentStageData.NextStage);
-
-            // 현재 씬 다시 로드
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else
-        {
-            Debug.LogError("다음 스테이지 데이터를 불러올 수 없습니다!");
         }
     }
 
