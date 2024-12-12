@@ -16,57 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: f05653bb4caf06b41845a38d88a6be60
-  m_SerializeEntries:
-  - m_GUID: 5f0da15e7e0311547bc6bbc8337ffac3
-    m_Address: Assets/Prefabs/SlimeData/SlimeData1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e147bef370d9edd4084f6a89a5029890
-    m_Address: Assets/Prefabs/SlimeData/SlimeData0.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: faddcc010502c1b4b87d14b0475b142b
-    m_Address: Assets/Prefabs/SlimeData/SlimeData3.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4f5b2c033451c314287df466f3e69a9f
-    m_Address: Assets/Prefabs/SlimeData/SlimeData4.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bc25128d113b3b449aed0a991ac364f2
-    m_Address: Assets/Prefabs/SlimeData/SlimeData2.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b9782081d740a3c4ca912696910fca57
-    m_Address: Assets/Prefabs/GoblinData/GoblinData1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 43d64516f5070df4081e1de4ac58c5c2
-    m_Address: Assets/Prefabs/GoblinData/GoblinData4.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b62facbc98a755b4898439b1bcff38a6
-    m_Address: Assets/Prefabs/GoblinData/GoblinData2.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2f397230180238445acf7bc71d795baa
-    m_Address: Assets/Prefabs/GoblinData/GoblinData3.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b68324d57bf82c34fb43e485bd7981da
-    m_Address: Assets/Prefabs/GoblinData/GoblinData0.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d7a651e5ac438084ba54a61f3a32685b, type: 2}
   m_SchemaSet:

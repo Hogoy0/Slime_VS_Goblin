@@ -10,28 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d93edde779f1e9a4b8751fa43c58e9de, type: 3}
-  m_Name: StageData 1
+  m_Name: StageData 2
   m_EditorClassIdentifier: 
-  StageName: "1\uC2A4\uD14C\uC774\uC9C0"
-  IsUnlocked: 1
+  StageName: "2\uC2A4\uD14C\uC774\uC9C0"
+  IsUnlocked: 0
   IsCleared: 0
   DefaultSprite: {fileID: 21300000, guid: 73bf72f46fa6fdf4c95865276a9cabff, type: 3}
-  NextStage: {fileID: 11400000, guid: 93c7e1d5f6259544c9fe710679b540f7, type: 2}
+  NextStage: {fileID: 11400000, guid: cc47677a1cc4eb64792c431957fef7e7, type: 2}
   waves:
   - waveName: 1
     goblinSpawnList:
     - goblinType: 0
+      count: 4
+    - goblinType: 1
+      count: 2
+    - goblinType: 2
       count: 1
+  - waveName: 2
+    goblinSpawnList:
+    - goblinType: 0
+      count: 5
+    - goblinType: 1
+      count: 5
+    - goblinType: 2
+      count: 2
   unlockedSlime:
   - slimeType: 4
     isUnlocked: 1
   - slimeType: 1
     isUnlocked: 1
   - slimeType: 2
-    isUnlocked: 0
+    isUnlocked: 1
   - slimeType: 0
     isUnlocked: 0
   - slimeType: 3
     isUnlocked: 0
   spawnPoints:
-  - {x: 16, y: -2.6, z: 0}
+  - {x: 20, y: -2.6, z: 0}

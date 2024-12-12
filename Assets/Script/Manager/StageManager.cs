@@ -69,6 +69,7 @@ public class StageManager : MonoBehaviour
     {
         foreach (var wave in currentStageData.waves)
         {
+            SoundManager.instance.PlayEtcESfx(SoundManager.EtcESfx.SFX_WaveStart);
             currentWaveIndex++;
             remainingGoblinsInWave = 0;
 
@@ -96,6 +97,7 @@ public class StageManager : MonoBehaviour
         Debug.Log("모든 웨이브가 완료되었습니다!");
         UnlockNextStage();  // 다음 스테이지 해금
         WinUI.SetActive(true);
+        SoundManager.instance.PlayEtcESfx(SoundManager.EtcESfx.SFX_Win);
     }
 
 

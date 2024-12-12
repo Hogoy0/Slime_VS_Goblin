@@ -33,6 +33,7 @@ public class BtnManager : MonoBehaviour
 
     public void OnBtnClick()
     {
+        SoundManager.instance.PlayUIESfx(SoundManager.UIESfx.UI_BasicBtn);
         switch (currentType)
         {
             case BtnType.Start:

@@ -27,6 +27,7 @@ public class StageBtnManager : MonoBehaviour
     // 버튼 클릭 시 호출할 메서드
     public void OnClickStageButton()
     {
+        SoundManager.instance.PlayUIESfx(SoundManager.UIESfx.UI_BasicBtn);
         if (stageData != null && stageData.IsUnlocked)
         {
             selectedStageData = stageData;
@@ -36,6 +37,12 @@ public class StageBtnManager : MonoBehaviour
         {
             Debug.LogError("스테이지가 잠겨 있습니다!");
         }
+    }
+
+    public void OnClickBackButton()
+    {
+        SoundManager.instance.PlayUIESfx(SoundManager.UIESfx.UI_BasicBtn);
+        SceneManager.LoadScene("TitleScene");
     }
 
     // 스테이지 상태 업데이트

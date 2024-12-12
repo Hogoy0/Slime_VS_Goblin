@@ -123,6 +123,7 @@ public class GManager : MonoBehaviour
     {
         isGameOver = true;
         DefeatUI.SetActive(true);
+        SoundManager.instance.PlayEtcESfx(SoundManager.EtcESfx.SFX_Lose);
     }
 
     private void UpdateCastleHealthBar()
@@ -322,6 +323,7 @@ public class GManager : MonoBehaviour
                 {
                     currentSlime.Initialize(newSlimeData);
                     mainCamera.transform.position = new Vector3(0, -0.4f, -17);
+                    SoundManager.instance.PlayUIESfx(SoundManager.UIESfx.UI_CostBtn);
                     Debug.Log($"{newSlimeData.slimeType} 소환 완료!");
                 }
                 else
