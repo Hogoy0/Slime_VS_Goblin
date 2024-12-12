@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -178,5 +179,11 @@ public class StageManager : MonoBehaviour
                 return data;
         }
         return null;
+    }
+
+    public void SetStageData(StageData newStageData)
+    {
+        currentStageData = newStageData;
+        Debug.Log($"새로운 스테이지 데이터로 변경됨: {newStageData.StageName}");
     }
 }
