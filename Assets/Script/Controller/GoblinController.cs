@@ -6,6 +6,7 @@ public class GoblinController : MonoBehaviour
     private GoblinData goblinData;
     private GameObject target;
     private bool isAttacking;
+    private HealthBarController healthBar;
 
     /// <summary>
     /// 고블린 초기화
@@ -15,6 +16,18 @@ public class GoblinController : MonoBehaviour
         goblinData = data;
         goblinData.m_currentHp = data.m_maxHp;  // 체력 초기화
         transform.position = position;
+
+        // HealthBarController 찾기 및 초기 설정
+        healthBar = GetComponentInChildren<HealthBarController>();
+        if (healthBar == null)
+        {
+            Debug.LogError("HealthBarController가 고블린에 없습니다!");
+        }
+        else
+        {
+            healthBar.UpdateHealthBar((int)goblinData.m_currentHp, (int)goblinData.m_maxHp);
+            healthBar.gameObject.SetActive(true);  // 초기에는 활성화 상태
+        }
     }
 
     private void Update()
@@ -145,6 +158,12 @@ public class GoblinController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         goblinData.m_currentHp -= damage;
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar((int)goblinData.m_currentHp, (int)goblinData.m_maxHp);
+            healthBar.gameObject.SetActive(true);  // HP바 표시 활성화
+        }
+
         if (goblinData.m_currentHp <= 0)
         {
             Die();
@@ -160,3 +179,4 @@ public class GoblinController : MonoBehaviour
         Destroy(gameObject);  // 고블린 제거
     }
 }
+
