@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -45,6 +46,14 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource audioBgm;
     [SerializeField] private AudioSource audioSfx;
 
+    private Dictionary<string, EBgm> sceneToBgmMap = new Dictionary<string, EBgm>
+    {
+        { "TitleScene", EBgm.BGM_TITLE },
+        { "MainScene", EBgm.BGM_GAME }
+    };
+
+    private EBgm? currentBgm;
+
     private void Awake()
     {
         if (instance == null)
@@ -52,12 +61,21 @@ public class SoundManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             InitializeDictionaries();
-            //PlayBGM(EBgm.BGM_GAME);
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void InitializeDictionaries()
@@ -84,6 +102,22 @@ public class SoundManager : MonoBehaviour
             {
                 dictionary.Add(sound.soundType, sound);
             }
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (sceneToBgmMap.TryGetValue(scene.name, out EBgm bgm))
+        {
+            if (currentBgm != bgm || scene.name == "MainScene")
+            {
+                PlayBGM(bgm);
+                currentBgm = bgm;
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"No BGM mapped for scene: {scene.name}");
         }
     }
 

@@ -84,7 +84,7 @@ public class SlimeController : MonoBehaviour
         if (isAttacking || target == null) yield break;
 
         isAttacking = true;
-        animator.SetTrigger("Attack");
+        
 
         // 공격 대기 시간 (애니메이션과 동기화 필요 시 애니메이션 이벤트 사용)
         yield return new WaitForSeconds(GManager.Instance.SlimeAttackDelay);
@@ -102,7 +102,7 @@ public class SlimeController : MonoBehaviour
     public void DealDamageToTarget()
     {
         if (target == null) return;
-
+        animator.SetTrigger("Attack");
         var targetController = target.GetComponent<GoblinController>();
         if (targetController != null)
         {

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MergedSilmeData2
   m_EditorClassIdentifier: 
   m_name: "\uD1A0\uD30C\uC988 \uC2AC\uB77C\uC784 \uBA38\uC9C0"
-  m_maxHp: 40
-  m_atk: 10
+  m_maxHp: 600
+  m_atk: 120
   m_stopDis: 2
   m_searchLength: 2
   m_reAtkTime: 2
