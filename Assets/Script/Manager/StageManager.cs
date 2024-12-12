@@ -7,9 +7,9 @@ using TMPro;
 public class StageManager : MonoBehaviour
 {
     public static StageManager Instance;
+    [SerializeField] private StageData currentStageData;
 
     private TMP_Text WaveText;                          // 웨이브 텍스트 참조
-    [SerializeField] private StageData currentStageData;  // 현재 스테이지 데이터
     [SerializeField] private Transform[] spawnPoints;     // 소환 위치 배열
     [SerializeField] private float goblinInterval = 0.5f; // 고블린 생성 간격
     [SerializeField] private List<GoblinData> goblinDataList; // 고블린 데이터 리스트
@@ -41,7 +41,11 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        Debug.Log($"스테이지 데이터 로드 완료: {currentStageData.stageName}");
+        Debug.Log($"스테이지 데이터 로드 완료: {currentStageData.StageName}");
+    }
+    public StageData GetCurrentStageData()
+    {
+        return currentStageData;
     }
 
     void Start()

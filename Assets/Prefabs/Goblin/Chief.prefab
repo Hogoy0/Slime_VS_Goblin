@@ -466,6 +466,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 197094129642370313, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5553367023049122467}
+    - targetCorrespondingSourceObject: {fileID: 197094129642370313, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7836048290687784766}
   m_SourcePrefab: {fileID: 100100000, guid: 62f8ea450a683aa4f85c7f564ba3b9fe, type: 3}
 --- !u!4 &3450554214812361860 stripped
 Transform:
@@ -510,3 +513,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7836048290687784766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214601370570437488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa76b7064816004d8585e760cbe7143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarUI: {fileID: 810752852552609272}
+  healthSlider: {fileID: 4717576119593229658}
+  healthText: {fileID: 0}
+  hideDelay: 2
+  alwaysVisible: 0

@@ -1,42 +1,56 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GManager : MonoBehaviour
 {
     public static GManager Instance;
-    [SerializeField] private int castleMaxHp = 1000;  // 성의 최대 체력
-    [SerializeField] private SlimeData[] slimeDataList; // 슬라임 데이터 리스트
-    [SerializeField] private int maxResources = 200; // 최대 자원
-    [SerializeField] private int resourcesPerSec = 10; // 초당 자원 증가량
-    [SerializeField] private float resourceInterval = 2.0f; // 자원 증가 간격
-    [SerializeField] private Slider costSlider; // 코스트 슬라이더 UI
-    [SerializeField] private float slimeAttackDelay = 1.5f; // 슬라임 공격 대기 시간
-    [SerializeField] private Text costText; // 코스트 텍스트
+
+    [Header("슬라임 관리")]
+    [SerializeField] private List<SlimeBtn> unitButtons;
+    [SerializeField] private SlimeData[] slimeDataList;
+    [SerializeField] private Transform unitButtonParent;
+
+    [Header("성 관리")]
+    [SerializeField] private int castleMaxHp = 1000;
     [SerializeField] private HealthBarController castleHealthBar;
 
-    private bool isDragging = false;
-    private Vector2 startpoint, endpoint, direction, force;
-    private float distance;
-    private int currentResources = 0; // 현재 자원
+    [Header("자원 관리")]
+    [SerializeField] private int maxResources = 200;
+    [SerializeField] private int resourcesPerSec = 10;
+    [SerializeField] private float resourceInterval = 2.0f;
+    [SerializeField] private Text costText;
+    [SerializeField] private Slider costSlider;
 
-    private int castleCurrentHp;
-    private int currentCastleHp;                     // 현재 체력
-    private bool isGameOver = false;                 // 게임 오버 여부
+    [Header("발사대 관리")]
+    [SerializeField] private float pushForce = 4f;
+    [SerializeField] private Vector3 launchPosition = new Vector3(-2.6f, -1.8f, 0f);
+    public Trajectory trajectory;
 
-    [SerializeField] private float pushForce = 4f; // 발사 힘
-    [SerializeField] private Vector3 launchPosition = new Vector3(-2.6f, -1.8f, 0f); // 발사 위치
+    [Header("슬라임 공격 관리")]
+    [SerializeField] private float slimeAttackDelay = 1.5f; // 슬라임 공격 대기 시간
 
-    public SummonController Slime { get; private set; } // 현재 소환된 슬라임
-    public bool isSlimeReady = false;
-    public Trajectory trajectory; // 궤적 표시
+    // 슬라임 공격 대기 시간 프로퍼티 추가
     public float SlimeAttackDelay => slimeAttackDelay;
 
-    // **Public Read-Only Property**
+    private bool isSpawning = false;
+
+    private int castleCurrentHp;
+    private int currentResources = 0;
+    private bool isDragging = false;
+    private bool isGameOver = false;
+    private SummonController currentSlime;
+
+    private Vector2 startpoint, endpoint, direction, force;
+    private float distance;
+    [SerializeField] private float dragThreshold = 0.5f;  // 드래그 민감도 설정
+
     public bool IsGameOver => isGameOver;
-    public int CurrentCastleHp => currentCastleHp;
+    public int CurrentCastleHp => castleCurrentHp;
 
     private void Awake()
     {
@@ -44,10 +58,30 @@ public class GManager : MonoBehaviour
         {
             Instance = this;
             castleCurrentHp = castleMaxHp;
-
-            // 초기 체력 설정
             UpdateCastleHealthBar();
         }
+    }
+
+    private void Start()
+    {
+        costSlider.maxValue = maxResources;
+        UpdateCostUI();
+        StartCoroutine(GenerateResources());
+
+        StageData currentStageData = StageManager.Instance.GetCurrentStageData();
+        if (currentStageData != null)
+        {
+            InitializeUnitButtonsFromStageData(currentStageData);
+        }
+        else
+        {
+            Debug.LogError("스테이지 데이터를 가져올 수 없습니다!");
+        }
+    }
+
+    private void Update()
+    {
+        HandleDragging();
     }
 
     /// <summary>
@@ -55,6 +89,8 @@ public class GManager : MonoBehaviour
     /// </summary>
     public void TakeDamageToCastle(int damage)
     {
+        if (isGameOver) return;
+
         castleCurrentHp -= damage;
         UpdateCastleHealthBar();
 
@@ -64,132 +100,11 @@ public class GManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 성 체력바 업데이트
-    /// </summary>
-    private void UpdateCastleHealthBar()
-    {
-        castleHealthBar.UpdateHealthBar(castleCurrentHp, castleMaxHp);
-    }
-
-    /// <summary>
-    /// 게임 오버 처리
-    /// </summary>
     private void GameOver()
     {
-        Debug.Log("게임 오버!");
-        // 게임 오버 로직 추가
-    }
-
-
-    void Start()
-    {
-        costSlider.maxValue = maxResources;
-        costSlider.value = currentResources;
-        UpdateCostUI();
-        StartCoroutine(GenerateResources());
-    }
-
-    void Update()
-    {
-        HandleDragging();
-    }
-
-    private void HandleDragging()
-    {
-        if (Slime != null && isSlimeReady)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                isDragging = true;
-                OnDragStart();
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                isDragging = false;
-                OnDragEnd();
-            }
-
-            if (isDragging) OnDrag();
-        }
-    }
-
-    private void OnDragStart()
-    {
-        Slime.DeActivateRb();
-        startpoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        trajectory.show();
-    }
-
-    private void OnDrag()
-    {
-        endpoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        distance = Vector2.Distance(startpoint, endpoint);
-        direction = (startpoint - endpoint).normalized;
-        force = direction * distance * pushForce;
-
-        Debug.DrawLine(startpoint, endpoint);
-        trajectory.UpdateDots(Slime.transform.position, force);
-    }
-
-    private void OnDragEnd()
-    {
-        Slime.ActivateRb();
-        Slime.Push(force);
-        trajectory.hide();
-        isSlimeReady = false;
-    }
-
-    public void Spawn_Launching_Slime(int slimeIndex)
-    {
-        if (slimeIndex < 0 || slimeIndex >= slimeDataList.Length)
-        {
-            Debug.LogError("잘못된 슬라임 인덱스입니다!");
-            return;
-        }
-
-        SlimeData data = slimeDataList[slimeIndex];
-
-        if (currentResources >= data.Cost)
-        {
-            currentResources -= Mathf.RoundToInt(data.Cost);
-            UpdateCostUI();
-
-            AssetReferenceGameObject prefabToSpawn = data.GetPrefab();
-            if (prefabToSpawn != null)
-            {
-                prefabToSpawn.InstantiateAsync(launchPosition, Quaternion.identity).Completed += handle =>
-                {
-                    if (handle.Status == AsyncOperationStatus.Succeeded)
-                    {
-                        GameObject spawnedSlime = handle.Result;
-                        Slime = spawnedSlime.GetComponent<SummonController>();
-                        if (Slime != null)
-                        {
-                            Slime.Initialize(data);
-                            isSlimeReady = true;
-                            Debug.Log($"슬라임 {data.m_name} 소환 완료!");
-                        }
-                        else
-                        {
-                            Debug.LogError("SummonController가 프리팹에 연결되지 않았습니다.");
-                        }
-                    }
-                    else
-                    {
-                        Debug.LogError("슬라임 소환 실패!");
-                    }
-                };
-            }
-            else
-            {
-                Debug.LogError("슬라임 프리팹이 설정되지 않았습니다.");
-            }
-        }
-        else
-        {
-            Debug.Log("자원이 부족합니다!");
-        }
+        isGameOver = true;
+        Debug.Log("게임 오버! 성이 파괴되었습니다.");
+        // 추가적인 게임 오버 처리 로직
     }
 
     private IEnumerator GenerateResources()
@@ -209,14 +124,230 @@ public class GManager : MonoBehaviour
 
     private void UpdateCostUI()
     {
-        if (costSlider != null)
+        if (costSlider == null || costText == null) return;
+
+        costSlider.value = currentResources;
+        costText.text = $"{currentResources}/{maxResources}";
+    }
+
+    private void UpdateCastleHealthBar()
+    {
+        if (castleHealthBar == null) return;
+        castleHealthBar.UpdateHealthBar(castleCurrentHp, castleMaxHp);
+    }
+
+    /// <summary>
+    /// 스테이지 데이터 기반 슬라임 버튼 초기화
+    /// </summary>
+    public void InitializeUnitButtonsFromStageData(StageData currentStageData)
+    {
+        if (unitButtonParent == null)
         {
-            costSlider.value = currentResources;
+            Debug.LogError("유닛 버튼 부모 오브젝트가 설정되지 않았습니다!");
+            return;
         }
 
-        if (costText != null)
+        unitButtons = new List<SlimeBtn>();
+
+        foreach (Transform child in unitButtonParent)
         {
-            costText.text = $"{currentResources}/{maxResources}";
+            SlimeBtn slimeBtn = child.GetComponent<SlimeBtn>();
+            if (slimeBtn != null)
+            {
+                unitButtons.Add(slimeBtn);
+            }
+        }
+
+        if (unitButtons.Count == 0)
+        {
+            Debug.LogError("슬라임 버튼이 유닛 버튼 부모 오브젝트에 없습니다!");
+            return;
+        }
+
+        // **슬라임 버튼 초기화 수행**
+        foreach (var button in unitButtons)
+        {
+            bool isUnlocked = false;
+
+            foreach (var unlockedSlime in currentStageData.unlockedSlime)
+            {
+                if (unlockedSlime.slimeType == button.SlimeType)
+                {
+                    isUnlocked = unlockedSlime.isUnlocked;
+                    break;
+                }
+            }
+
+            button.Initialize(isUnlocked);
         }
     }
+
+
+    private void HandleDragging()
+    {
+        if (currentSlime == null || currentSlime.IsLaunched || EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            startpoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            isDragging = false;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            endpoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            distance = Vector2.Distance(startpoint, endpoint);
+
+            if (distance >= dragThreshold && !isDragging)
+            {
+                isDragging = true;
+                OnDragStart();
+            }
+
+            if (isDragging)
+            {
+                OnDrag();
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0) && isDragging)
+        {
+            isDragging = false;
+            OnDragEnd();
+        }
+    }
+
+    private void OnDragStart()
+    {
+        currentSlime.DeActivateRb();
+        trajectory.show();
+    }
+
+    private void OnDrag()
+    {
+        endpoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        direction = (startpoint - endpoint).normalized;
+        force = direction * distance * pushForce;
+
+        trajectory.UpdateDots(currentSlime.transform.position, force);
+    }
+
+    private void OnDragEnd()
+    {
+        if (currentSlime == null || currentSlime.IsLaunched) return;
+
+        // 슬라임 발사 처리
+        currentSlime.ActivateRb();
+        currentSlime.Push(force);
+        trajectory.hide();
+
+        // 발사 상태 설정
+        currentSlime.IsLaunched = true;
+    }
+    public void Spawn_Launching_Slime(int slimeIndex)
+    {
+        if (slimeIndex < 0 || slimeIndex >= slimeDataList.Length)
+        {
+            Debug.LogError("잘못된 슬라임 인덱스입니다!");
+            return;
+        }
+
+        SlimeData newSlimeData = slimeDataList[slimeIndex];
+
+        // 소환 대기 상태 확인
+        if (isSpawning)
+        {
+            Debug.LogWarning("슬라임 소환 중입니다!");
+            return;
+        }
+
+        // 자원 확인
+        if (currentResources < newSlimeData.Cost)
+        {
+            Debug.Log("자원이 부족합니다!");
+            return;
+        }
+
+        // 기존 슬라임이 발사대에 남아있으면 초기화 및 자원 환급
+        if (currentSlime != null && !currentSlime.IsLaunched)
+        {
+            RefundCurrentSlime();
+        }
+
+        // 중복 소환 방지
+        if (currentSlime != null && currentSlime.SlimeData == newSlimeData && !currentSlime.IsLaunched)
+        {
+            Debug.Log("같은 슬라임이 이미 발사대에 있습니다!");
+            return;
+        }
+
+        // 자원 차감 및 업데이트
+        currentResources -= Mathf.RoundToInt(newSlimeData.Cost);
+        UpdateCostUI();
+
+        // 슬라임 소환 시작
+        isSpawning = true;
+        AssetReferenceGameObject prefabToSpawn = newSlimeData.GetPrefab();
+
+        prefabToSpawn.InstantiateAsync(launchPosition, Quaternion.identity).Completed += handle =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                GameObject spawnedSlime = handle.Result;
+                currentSlime = spawnedSlime.GetComponent<SummonController>();
+
+                if (currentSlime != null)
+                {
+                    currentSlime.Initialize(newSlimeData);
+                    Debug.Log($"{newSlimeData.slimeType} 소환 완료!");
+                }
+                else
+                {
+                    Debug.LogError("SummonController가 프리팹에 연결되지 않았습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogError("슬라임 소환 실패!");
+            }
+
+            isSpawning = false; // 소환 완료
+        };
+    }
+
+
+    /// <summary>
+    /// 슬라임 잠금 상태 확인
+    /// </summary>
+    private bool IsSlimeUnlocked(SlimeData slimeData)
+    {
+        StageData currentStageData = StageManager.Instance.GetCurrentStageData();
+
+        foreach (var unlockedSlime in currentStageData.unlockedSlime)
+        {
+            if (unlockedSlime.slimeType == slimeData.slimeType)
+            {
+                return unlockedSlime.isUnlocked;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// 기존 슬라임 환급 및 발사대 초기화
+    /// </summary>
+    private void RefundCurrentSlime()
+    {
+        if (currentSlime == null || currentSlime.IsLaunched) return;
+
+        // 자원 환급
+        currentResources = Mathf.Min(currentResources + Mathf.RoundToInt(currentSlime.SlimeData.Cost), maxResources);
+        UpdateCostUI();
+
+        // 기존 슬라임 제거
+        Destroy(currentSlime.gameObject);
+        currentSlime = null;
+    }
+
 }
