@@ -10,7 +10,12 @@ public class SType
         Sapphire,
         Topaz,
         Ruby,
-        Emerald
+        Emerald,
+        MergedDiamond,
+        MergedSapphire,
+        MergedTopaz,
+        MergedRuby,
+        MergedEmerald,
     }
 }
 

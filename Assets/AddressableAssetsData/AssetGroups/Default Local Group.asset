@@ -67,6 +67,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcf111465622d4446b6c9cebe7a1a12e
+    m_Address: Assets/Prefabs/Slime/Diamond_Battle_Murge.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cf0a3a9b621e7440a3f08b6f286a6c0
+    m_Address: Assets/Prefabs/Slime/Emerald_Battle_Murge.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78e53bebb0788be4badac29a317e5d90
+    m_Address: Assets/Prefabs/Slime/Ruby_Battle_Murge.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c73fffe1ea1cb24d969c235827b4ad5
+    m_Address: Assets/Prefabs/Slime/Sapphire_Battle_Murge.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bd4abfbf97fce44f82eedc55a44016b
+    m_Address: Assets/Prefabs/Slime/Topaz_Battle_Murge.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d7a651e5ac438084ba54a61f3a32685b, type: 2}
   m_SchemaSet:

@@ -11,6 +11,11 @@ public class SlimeData : CData
     public AssetReferenceGameObject TopazPrefab;
     public AssetReferenceGameObject RubyPrefab;
     public AssetReferenceGameObject EmeraldPrefab;
+    public AssetReferenceGameObject MergedDiamondPrefab;
+    public AssetReferenceGameObject MergedSapphirePrefab;
+    public AssetReferenceGameObject MergedTopazPrefab;
+    public AssetReferenceGameObject MergedRubyPrefab;
+    public AssetReferenceGameObject MergedEmeraldPrefab;
 
     public AssetReferenceGameObject GetPrefab()
     {
@@ -21,6 +26,11 @@ public class SlimeData : CData
             case SType.SlimeType.Topaz: return TopazPrefab;
             case SType.SlimeType.Ruby: return RubyPrefab;
             case SType.SlimeType.Emerald: return EmeraldPrefab;
+            case SType.SlimeType.MergedDiamond: return MergedDiamondPrefab;
+            case SType.SlimeType.MergedSapphire: return MergedSapphirePrefab;
+            case SType.SlimeType.MergedTopaz: return MergedTopazPrefab;
+            case SType.SlimeType.MergedRuby: return MergedRubyPrefab;
+            case SType.SlimeType.MergedEmerald: return MergedEmeraldPrefab;
             default: return null;
         }
     }

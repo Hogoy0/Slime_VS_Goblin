@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1826e470e60a4a043a0f9fa3d7d05831, type: 3}
+  m_Name: MergedSilmeData2
+  m_EditorClassIdentifier: 
+  m_name: "\uD1A0\uD30C\uC988 \uC2AC\uB77C\uC784 \uBA38\uC9C0"
+  m_maxHp: 600
+  m_atk: 120
+  m_stopDis: 2
+  m_searchLength: 2
+  m_reAtkTime: 2
+  m_currentHp: 0
+  Cost: 10
+  slimeType: 7
+  DiamondPrefab:
+    m_AssetGUID: f38406e30666d9e4a996fee0c8eb8e49
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  SapphirePrefab:
+    m_AssetGUID: 5ef75c6f0a491a04580d6b8de6cd77b3
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  TopazPrefab:
+    m_AssetGUID: 672f893d1d5b6b346816584ba71849a0
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  RubyPrefab:
+    m_AssetGUID: 22c2e92e5d3b81a43b5022e110653c8f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1
+  EmeraldPrefab:
+    m_AssetGUID: 8280125e5574b05469098a4e311c80cf
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedDiamondPrefab:
+    m_AssetGUID: bcf111465622d4446b6c9cebe7a1a12e
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedSapphirePrefab:
+    m_AssetGUID: 2c73fffe1ea1cb24d969c235827b4ad5
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedTopazPrefab:
+    m_AssetGUID: 4bd4abfbf97fce44f82eedc55a44016b
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedRubyPrefab:
+    m_AssetGUID: 78e53bebb0788be4badac29a317e5d90
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedEmeraldPrefab:
+    m_AssetGUID: 0cf0a3a9b621e7440a3f08b6f286a6c0
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
