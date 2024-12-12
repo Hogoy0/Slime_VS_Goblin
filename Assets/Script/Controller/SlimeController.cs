@@ -85,10 +85,10 @@ public class SlimeController : MonoBehaviour
 
         isAttacking = true;
         
-
         // 공격 대기 시간 (애니메이션과 동기화 필요 시 애니메이션 이벤트 사용)
         yield return new WaitForSeconds(GManager.Instance.SlimeAttackDelay);
-
+        SoundManager.instance.PlaySlimeESfx(SoundManager.SlimeESfx.Slime_Attack);
+        animator.SetTrigger("Attack");
         if (target != null && Vector3.Distance(transform.position, target.transform.position) <= slimeData.m_stopDis)
         {
             DealDamageToTarget();
@@ -102,7 +102,7 @@ public class SlimeController : MonoBehaviour
     public void DealDamageToTarget()
     {
         if (target == null) return;
-        animator.SetTrigger("Attack");
+        
         var targetController = target.GetComponent<GoblinController>();
         if (targetController != null)
         {
@@ -128,6 +128,7 @@ public class SlimeController : MonoBehaviour
 
     private void Die()
     {
+        SoundManager.instance.PlaySlimeESfx(SoundManager.SlimeESfx.Slime_Death);
         Destroy(gameObject);
     }
 }

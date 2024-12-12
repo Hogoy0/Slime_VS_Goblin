@@ -34,6 +34,9 @@ public class GManager : MonoBehaviour
     [Header("슬라임 공격 관리")]
     [SerializeField] private float slimeAttackDelay = 1.5f; // 슬라임 공격 대기 시간
 
+    [Header("카메라")]
+    [SerializeField] private Camera mainCamera;
+
     // 슬라임 공격 대기 시간 프로퍼티 추가
     public float SlimeAttackDelay => slimeAttackDelay;
 
@@ -79,6 +82,7 @@ public class GManager : MonoBehaviour
 
     private void Start()
     {
+        mainCamera = Camera.main;
         costSlider.maxValue = maxResources;
         UpdateCostUI();
         StartCoroutine(GenerateResources());
@@ -254,6 +258,7 @@ public class GManager : MonoBehaviour
         if (currentSlime == null || currentSlime.IsLaunched) return;
 
         // 슬라임 발사 처리
+        SoundManager.instance.PlaySlimeESfx(SoundManager.SlimeESfx.Slime_Launch);
         currentSlime.ActivateRb();
         currentSlime.Push(force);
         trajectory.hide();
@@ -316,6 +321,7 @@ public class GManager : MonoBehaviour
                 if (currentSlime != null)
                 {
                     currentSlime.Initialize(newSlimeData);
+                    mainCamera.transform.position = new Vector3(0, -0.4f, -17);
                     Debug.Log($"{newSlimeData.slimeType} 소환 완료!");
                 }
                 else

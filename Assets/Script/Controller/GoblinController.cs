@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using static GType;
 
 public class GoblinController : MonoBehaviour
 {
@@ -110,14 +111,17 @@ public class GoblinController : MonoBehaviour
         {
             var slimeController = target.GetComponent<SlimeController>();
             slimeController?.TakeDamage(goblinData.m_atk);  // 슬라임 공격
+            AttackSound();
         }
         else if (target.CompareTag("Castle"))
         {
             GManager.Instance.TakeDamageToCastle(goblinData.m_atk);  // 성 공격
+            AttackSound();
         }
 
         Animator animator = gameObject.GetComponent<Animator>();
         animator.SetBool("Attack", true);
+
 
         yield return new WaitForSeconds(goblinData.m_reAtkTime);  // 공격 대기 시간
         animator.SetBool("Wait", false);
@@ -176,7 +180,31 @@ public class GoblinController : MonoBehaviour
     private void Die()
     {
         StageManager.Instance.HandleGoblinDeath(gameObject);  // 고블린 제거 알림
+        SoundManager.instance.PlayGoblinESfx(SoundManager.GoblinESfx.Goblin_Death);
         Destroy(gameObject);  // 고블린 제거
+    }
+
+    private void AttackSound()
+    {
+        switch (goblinData.goblinType)
+        {
+            case GType.GoblinType.Shovels:
+                SoundManager.instance.PlayGoblinESfx(SoundManager.GoblinESfx.Goblin_DiggingTools);
+                break;
+            case GType.GoblinType.Pickax:
+                SoundManager.instance.PlayGoblinESfx(SoundManager.GoblinESfx.Goblin_DiggingTools);
+                break;
+            case GType.GoblinType.Drill:
+                SoundManager.instance.PlayGoblinESfx(SoundManager.GoblinESfx.Goblin_Drill);
+                break;
+            case GType.GoblinType.Chief:
+                SoundManager.instance.PlayGoblinESfx(SoundManager.GoblinESfx.Goblin_Shief);
+                break;
+            case GType.GoblinType.Bomb:
+                SoundManager.instance.PlayGoblinESfx(SoundManager.GoblinESfx.Goblin_Bomb);
+                break;
+
+        }
     }
 }
 

@@ -17,7 +17,7 @@ MonoBehaviour:
   m_atk: 120
   m_stopDis: 2
   m_searchLength: 2
-  m_reAtkTime: 2
+  m_reAtkTime: 3
   m_currentHp: 0
   Cost: 10
   slimeType: 7

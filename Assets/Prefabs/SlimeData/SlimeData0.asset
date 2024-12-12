@@ -15,10 +15,10 @@ MonoBehaviour:
   m_name: "\uC5D0\uB9E4\uB784\uB4DC \uC2AC\uB77C\uC784"
   m_maxHp: 40
   m_atk: 10
-  m_stopDis: 2
-  m_searchLength: 2
+  m_stopDis: 3
+  m_searchLength: 3
   m_reAtkTime: 2
-  m_currentHp: 0
+  m_currentHp: -20
   Cost: 10
   slimeType: 4
   DiamondPrefab:
@@ -43,6 +43,31 @@ MonoBehaviour:
     m_EditorAssetChanged: 1
   EmeraldPrefab:
     m_AssetGUID: 8280125e5574b05469098a4e311c80cf
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedDiamondPrefab:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedSapphirePrefab:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedTopazPrefab:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedRubyPrefab:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedEmeraldPrefab:
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

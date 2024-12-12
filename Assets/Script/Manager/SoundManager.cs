@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
     // BGM 종류들
     public enum EBgm { BGM_TITLE, BGM_GAME }
     public enum SlimeESfx { Slime_Death, Slime_Merge, Slime_Launch, Slime_Landing, Slime_Attack }
-    public enum GoblinESfx { Goblin_Death, Goblin_Bomb, Goblin_Drill, Goblin_DiggingTools, Goblin_Sheif }
+    public enum GoblinESfx { Goblin_Death, Goblin_Bomb, Goblin_Drill, Goblin_DiggingTools, Goblin_Shief }
     public enum UIESfx { UI_BasicBtn, UI_CostBtn }
     public enum EtcESfx { SFX_Win, SFX_Lose, SFX_WaveStart }
 
@@ -49,6 +49,7 @@ public class SoundManager : MonoBehaviour
     private Dictionary<string, EBgm> sceneToBgmMap = new Dictionary<string, EBgm>
     {
         { "TitleScene", EBgm.BGM_TITLE },
+        { "StageScene", EBgm.BGM_TITLE },
         { "MainScene", EBgm.BGM_GAME }
     };
 
@@ -109,11 +110,14 @@ public class SoundManager : MonoBehaviour
     {
         if (sceneToBgmMap.TryGetValue(scene.name, out EBgm bgm))
         {
-            if (currentBgm != bgm || scene.name == "MainScene")
+            if (bgm == EBgm.BGM_TITLE && currentBgm == EBgm.BGM_TITLE)
             {
-                PlayBGM(bgm);
-                currentBgm = bgm;
+                // BGM_TITLE 재생 중인 경우 계속 재생
+                return;
             }
+
+            PlayBGM(bgm);
+            currentBgm = bgm;
         }
         else
         {
@@ -125,9 +129,12 @@ public class SoundManager : MonoBehaviour
     {
         if (bgmDict.TryGetValue(bgmType, out BgmClip bgm))
         {
-            audioBgm.clip = bgm.clip;
-            audioBgm.volume = bgm.volume;
-            audioBgm.Play();
+            if (audioBgm.clip != bgm.clip)
+            {
+                audioBgm.clip = bgm.clip;
+                audioBgm.volume = bgm.volume;
+                audioBgm.Play();
+            }
         }
         else
         {

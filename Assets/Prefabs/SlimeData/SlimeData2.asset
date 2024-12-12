@@ -15,8 +15,8 @@ MonoBehaviour:
   m_name: "\uD1A0\uD30C\uC988 \uC2AC\uB77C\uC784"
   m_maxHp: 300
   m_atk: 55
-  m_stopDis: 2
-  m_searchLength: 2
+  m_stopDis: 3
+  m_searchLength: 3
   m_reAtkTime: 3
   m_currentHp: 0
   Cost: 40
@@ -43,6 +43,31 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   EmeraldPrefab:
     m_AssetGUID: 8280125e5574b05469098a4e311c80cf
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedDiamondPrefab:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedSapphirePrefab:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedTopazPrefab:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedRubyPrefab:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MergedEmeraldPrefab:
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

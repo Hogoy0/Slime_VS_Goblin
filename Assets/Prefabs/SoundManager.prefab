@@ -48,42 +48,42 @@ MonoBehaviour:
   bgmClips:
   - bgmType: 0
     clip: {fileID: 8300000, guid: c57b9e4b8aa445d41809795c75d540c3, type: 3}
-    volume: 1
+    volume: 0.489
   - bgmType: 1
     clip: {fileID: 8300000, guid: 8b3ce461c75f2654ab9bee065ec5b000, type: 3}
-    volume: 1
+    volume: 0.517
   slimeSounds:
   - soundType: 0
     clip: {fileID: 8300000, guid: 5c06781b655f8524594dd5c12e293ace, type: 3}
     volume: 1
   - soundType: 1
-    clip: {fileID: 8300000, guid: a727bafde832ea24ba7a02803e5e9c69, type: 3}
+    clip: {fileID: 8300000, guid: a915c80c8c8f0474094e5540e264870a, type: 3}
     volume: 1
   - soundType: 2
     clip: {fileID: 8300000, guid: ab908ab52f1554442bea3a9529911a95, type: 3}
     volume: 0.616
   - soundType: 3
-    clip: {fileID: 8300000, guid: a6e915c877872f2448f895f8b2341890, type: 3}
+    clip: {fileID: 8300000, guid: a727bafde832ea24ba7a02803e5e9c69, type: 3}
     volume: 1
   - soundType: 4
-    clip: {fileID: 8300000, guid: 58ff8efa451820c49aff02088afd80ca, type: 3}
+    clip: {fileID: 8300000, guid: dd727c9c9b49dbd47afa86fc8ae64390, type: 3}
     volume: 1
   goblinSounds:
   - soundType: 0
     clip: {fileID: 8300000, guid: 034f329c4f89902429a8a014c0b23fb2, type: 3}
-    volume: 0
+    volume: 1
   - soundType: 1
-    clip: {fileID: 8300000, guid: ccd1d8aef9145d44781bd27bf89c3d6e, type: 3}
-    volume: 0
+    clip: {fileID: 8300000, guid: 82e0a9e3a677aa8419ece135a74a3fd2, type: 3}
+    volume: 1
   - soundType: 2
-    clip: {fileID: 8300000, guid: 9ba6d08a187ed124a87a8ee1a6c3b5df, type: 3}
-    volume: 0
+    clip: {fileID: 8300000, guid: bc8261d9b6692be4090ea211764bb82c, type: 3}
+    volume: 1
   - soundType: 3
     clip: {fileID: 8300000, guid: d2fb4a0643dfee04395515916246d6a5, type: 3}
-    volume: 0
+    volume: 0.364
   - soundType: 4
     clip: {fileID: 8300000, guid: beb59dbca3e32214ca9962f9753a6694, type: 3}
-    volume: 0
+    volume: 1
   uiSounds:
   - soundType: 0
     clip: {fileID: 8300000, guid: 45329b2f8d308e542a13f26a0336b279, type: 3}
@@ -100,7 +100,7 @@ MonoBehaviour:
     volume: 1
   - soundType: 2
     clip: {fileID: 8300000, guid: 98e14f0d9627ebb41bea5ce86fa4c720, type: 3}
-    volume: 1
+    volume: 0.671
   audioBgm: {fileID: 1810728414229411889}
   audioSfx: {fileID: 1810728414229411889}
 --- !u!82 &1810728414229411889
@@ -117,7 +117,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

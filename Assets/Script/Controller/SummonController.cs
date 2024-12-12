@@ -160,6 +160,7 @@ public class SummonController : MonoBehaviour
                 {
                     Destroy(Rightray.collider.gameObject);
                     spawnedSlime = Instantiate(prefabToSpawnMurge, MurgespawnPosition, Quaternion.identity);
+                    SoundManager.instance.PlaySlimeESfx(SoundManager.SlimeESfx.Slime_Merge);
                     Destroy(gameObject);
                 }
 
@@ -169,6 +170,7 @@ public class SummonController : MonoBehaviour
                     {
                         Destroy(Leftray.collider.gameObject);
                         spawnedSlime = Instantiate(prefabToSpawnMurge, MurgespawnPosition, Quaternion.identity);
+                        SoundManager.instance.PlaySlimeESfx(SoundManager.SlimeESfx.Slime_Merge);
                         Destroy(gameObject);
                     }
                 }
@@ -176,6 +178,7 @@ public class SummonController : MonoBehaviour
 
             if (spawnedSlime == null)
             {
+                SoundManager.instance.PlaySlimeESfx(SoundManager.SlimeESfx.Slime_Landing);
                 spawnedSlime = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
                 Destroy(gameObject);
             }

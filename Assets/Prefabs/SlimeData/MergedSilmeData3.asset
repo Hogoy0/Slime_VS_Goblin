@@ -15,9 +15,9 @@ MonoBehaviour:
   m_name: "\uB2E4\uC774\uC544 \uC2AC\uB77C\uC784 \uBA38\uC9C0"
   m_maxHp: 2200
   m_atk: 0
-  m_stopDis: 2
-  m_searchLength: 2
-  m_reAtkTime: 2
+  m_stopDis: 0
+  m_searchLength: 0
+  m_reAtkTime: 0
   m_currentHp: 0
   Cost: 10
   slimeType: 5

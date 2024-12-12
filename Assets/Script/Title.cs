@@ -31,7 +31,8 @@ public class TitleScene : MonoBehaviour
 
                 if (Input.anyKeyDown)
                 {
-                    currentState = TitleState.ShowingButtons;
+                    SoundManager.instance.PlayUIESfx(SoundManager.UIESfx.UI_BasicBtn);
+                    currentState = TitleState.ShowingButtons; ;
                     StartCoroutine(ActivateButtonsWithDelay());
                 }
                 break;
