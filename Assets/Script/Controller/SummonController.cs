@@ -18,6 +18,8 @@ public class SummonController : MonoBehaviour
     private float health;
     private int attackPower;
     private CData cData;
+    public bool IsLaunched { get; set; } = false;
+    public SlimeData SlimeData { get; private set; }
 
     public enum SlimeType
     {
