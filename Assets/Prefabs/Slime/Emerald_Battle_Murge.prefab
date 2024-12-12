@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07183eea76849984baef065c61c3ae7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeData: {fileID: 11400000, guid: e147bef370d9edd4084f6a89a5029890, type: 2}
+  slimeData: {fileID: 11400000, guid: 67a26d889a8f4bb4ebf83bd83cfe401b, type: 2}
 --- !u!95 &4040239033548780418
 Animator:
   serializedVersion: 5
