@@ -53,9 +53,17 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2463488140157623833, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
+      propertyPath: slimeType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463488140157623833, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: prefabToSpawn
       value: 
       objectReference: {fileID: 6214601370570437488, guid: 7ca77c1781a2164409181872292f63b1, type: 3}
+    - target: {fileID: 2463488140157623833, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
+      propertyPath: prefabToSpawnMurge
+      value: 
+      objectReference: {fileID: 6214601370570437488, guid: bcf111465622d4446b6c9cebe7a1a12e, type: 3}
     - target: {fileID: 5257574504988215608, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: m_Size.x
       value: 2.56
@@ -78,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5307014517700006524, guid: 02e07c9264b783b469338817a1abcc22, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
