@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StageData 5
   m_EditorClassIdentifier: 
   StageName: "5\uC2A4\uD14C\uC774\uC9C0"
-  IsUnlocked: 0
+  IsUnlocked: 1
   IsCleared: 0
   DefaultSprite: {fileID: 21300000, guid: 73bf72f46fa6fdf4c95865276a9cabff, type: 3}
   NextStage: {fileID: 0}
@@ -47,11 +47,11 @@ MonoBehaviour:
     - goblinType: 4
       count: 7
     - goblinType: 2
-      count: 3
+      count: 5
     - goblinType: 0
-      count: 3
+      count: 7
     - goblinType: 3
-      count: 3
+      count: 5
   unlockedSlime:
   - slimeType: 4
     isUnlocked: 1

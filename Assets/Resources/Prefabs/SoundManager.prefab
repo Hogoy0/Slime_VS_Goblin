@@ -89,7 +89,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 45329b2f8d308e542a13f26a0336b279, type: 3}
     volume: 1
   - soundType: 1
-    clip: {fileID: 8300000, guid: 7ab43b3e8e9f29c47b2bddcc2efb8dd5, type: 3}
+    clip: {fileID: 8300000, guid: 15ca12d9507cf8a4b99f759e86e19842, type: 3}
     volume: 1
   etcSounds:
   - soundType: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
     volume: 1
   - soundType: 2
     clip: {fileID: 8300000, guid: 98e14f0d9627ebb41bea5ce86fa4c720, type: 3}
-    volume: 0.671
+    volume: 0.467
   audioBgm: {fileID: 1810728414229411889}
   audioSfx: {fileID: 1810728414229411889}
 --- !u!82 &1810728414229411889
